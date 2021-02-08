@@ -1,2 +1,2 @@
 # Change
-Cycle wallpapers when unlocking device. What did you expect.
+Cycle wallpapers when unlocking device. About as simple as that.
