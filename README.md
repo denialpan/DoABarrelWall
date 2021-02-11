@@ -18,4 +18,4 @@ Before I started this project, I identified myself with three out of the four ab
 
 I find myself fortunate that I was able to encounter a developer that open sourced their work heavily on Github. After sifting through their many repositories and reading through the code, I understood that tweak development is a skill in it by itself, that it is almost a stab in the dark given how little guides exist to get someone started. As far as I've understood, setting up the proper environment is simple enough to get started (many guides exist for that purpose), but when it comes to  creating something unique, there is very little to follow besides the official Apple Documentation page and this third party page https://developer.limneos.net/ of nearly every single class dump available to modify.
 
-I have since removed every single illegitimate copies of tweaks off my device in August last year after realizing that tweak development isn't as simple as it is. 
+I have since removed every single illegitimate copies of tweaks off my device in August of 2020 after realizing that tweak development isn't as simple as it is. 
