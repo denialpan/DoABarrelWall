@@ -13,3 +13,5 @@ The Jailbreak community has the same people that exist in nearly every online co
 - **Active Users:** Those that spend some time every day in the community to see what's new and to help others when they can.
 - **Developers:** Those that provide a service for the community, most likely tweaks or a solution to an ongoing problem
 - **Piraters:** Those that are unable to pay for the tweaks provided by developers, either by choice or impossible for them to.
+
+Before I made this tweak, I identified myself with three out of the four above. 
