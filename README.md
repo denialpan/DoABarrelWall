@@ -3,7 +3,7 @@ Cycle through lockscreen and homescreen wallpapers with an "unlimited" set amoun
 ## Contributors
 Because these people are more important than the tweak itself.
 
-###Table Of Contents
+### Table Of Contents
 - Prologue
 - Currently
 - Thank You So Much (where contributors list actually start)
