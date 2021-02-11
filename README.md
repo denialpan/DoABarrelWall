@@ -34,7 +34,7 @@ However, after the statement I just said, I feel that I need to apologize to eve
 
 ### Thank you so much
 
-- **Azzou** for providing everything necessary to help me create the editable list preference panel to add as many images as needed, biggest thanks to him, as without him taking so much time out of his day to explain and answer my numerous questions about specifiers, this tweak literally wouldn't exist the way it is, especially when I accidentally performed a satanic ritual on his phone. He's been an amazing help when I needed it the most, beyond anything that I had expected, so I desperately need to express my biggest thanks again.
+- [**Azzou**](https://twitter.com/AzzouDuGhetto) for providing everything necessary to help me create the editable list preference panel to add as many images as needed, biggest thanks to him, as without him taking so much time out of his day to explain and answer my numerous questions about specifiers, this tweak literally wouldn't exist the way it is, especially when I accidentally performed a satanic ritual on his phone. He's been an amazing help when I needed it the most, beyond anything that I had expected, so I desperately need to express my biggest thanks again.
 
 - **GC**, a genius in his own way, for taking time out of his day to deal with my nonsense with libraries and .plists. Furthermore, extremely big credits to his amazing library libgcuniversal for working in a way that I was worried I would to implement manually. Without him also taking time out of his own day to update his library to help make my tweak handle images in a proper way, I would have a "bug" I don't I could have the capability to fix myself. This tweak also wouldn't exist the way it is without so much help from him elsewhere.
 
