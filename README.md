@@ -51,13 +51,12 @@ There is also a [discord server](https://discord.gg/WWbjTum) where I've received
 - [**Lacertosus**](https://twitter.com/LacertosusDeus) for his many open source projects on github that made me understand how UIViews worked.
 
 While these people below didn't directly involve themselves with the physical aspects of the tweak, I still credit them here because they decided to take time out of their day to help me, and that is already more than enough, so I equally just as appreciate them as much as the people above.
-- **Woodfairy** and **Lightmann** for helping me troubleshoot for a dumb issue that I caused myself and ending up teaching me the basics of CLI. I can definitely see the importance behind being able to navigate through that quickly, so thank you so much. 
-- **Arya_06** for helping when I literally didn't know what I was looking at and explaining the obj-c syntax for me, therefore making things clearer overall for me. Thank you for saving me so much time by helping me here, I definitely appreciate it. 
-- **Luki** for also helping me with the basics of how preferences work. However, more importantly, he was the silent motivation for me that tweak development is possible from a complete beginner like me. He had the same resources and help available as me and was able to create his own amazing work, so he was a big reason for me not to give up. 
-- **WilsontheWolf** for randomly installing the first deb I ever made. That felt really good, even though I know it didn't do anything, but seeing other people use my work made me want to continue and improve on my idea.
-- **Thomz** for the tweak name lol, literally the best name possible.
+- [**Woodfairy**](https://twitter.com/woodfairyd) and **Lightmann** for helping me troubleshoot for a dumb issue that I caused myself and ending up teaching me the basics of CLI. I can definitely see the importance behind being able to navigate through that quickly, so thank you so much. 
+- [**Arya_06**](https://twitter.com/arya_1106) for helping when I literally didn't know what I was looking at and explaining the obj-c syntax for me, therefore making things clearer overall for me. Thank you for saving me so much time by helping me here, I definitely appreciate it. 
+- [**Luki120**](https://twitter.com/Lukii120) for also helping me with the basics of how preferences work. However, more importantly, he was the silent motivation for me that tweak development is possible from a complete beginner like me. He had the same resources and help available as me and was able to create his own amazing work, so he was a big reason for me not to give up. 
+- [**WilsontheWolf**](https://github.com/WilsontheWolf) for randomly installing the first deb I ever made. That felt really good, even though I know it didn't do anything, but seeing other people use my work made me want to continue and improve on my idea.
 
 And then this legend, because without his videos overall, I would have immediately abandoned my idea since the beginning.
-- **Zane Helton** for his amazing tweak development tutorial series, even though it's slightly outdated, but it was enough encouragement for even for a dummy like me to give tweak development a try.
+- [**Zane Helton**](https://www.youtube.com/watch?v=uNXd4KLLjhk&list=PLFWEDfSyl7h_K8Ew4rwTzlUPgWU7nKYri) for his amazing tweak development tutorial series, even though it's slightly outdated, but it was enough encouragement for even for a dummy like me to give tweak development a try.
 
 [Free Release] DoABarrelWall, change lockscreen and homescreen wallpapers with an "unlimited" set amount of images when unlocking device.
