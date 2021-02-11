@@ -29,7 +29,7 @@ I have since permanently removed every single illegitimate copy of every tweak o
 
 As the days went on, I witnessed a beginner that was just like me a few weeks ago create a tweak that was simple enough of implementing dark mode for apps that I use that didn't natively support it. This was by far enough encouragement and reason for me to finally give tweak development a try, but the only problem that I truly had was a lack of ideas to make anything unique. 
 
-#### Currently
+#### Current Thoughts
 
 A tweak is only as good as the idea itself. No matter how good a tweak is written, if it fails to find an audience that feels that the tweak satisfies a need, then it becomes slowly lost into the depths of an oversaturated marketplace. I wish to write a simple enough of a tweak to the best of my capabilities, but if I feel that the work itself is overdone by others, then I have little incentive to work on something that would be a waste of my time and energy. I can perfectly accept the possibility of my work being lost, because as mentioned before, the real world operates in just the same way, and this community is no different. But for something that I do in my free time as just a personal venture, if I don't feel that the project is meaningful to myself, then I prefer to spend my time elsewhere. 
 
