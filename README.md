@@ -3,7 +3,12 @@ Cycle through lockscreen and homescreen wallpapers with an "unlimited" set amoun
 ## Contributors
 Because these people are more important than the tweak itself.
 
-### Prologue
+###Table Of Contents
+- Prologue
+- Currently
+- Thank You So Much (where contributors list actually start)
+
+#### Prologue
 
 I find the Jailbreak community to be a strange place. It encapsulates much of how the rest of the world works and interacts with each other, in it's own place of a microcosm, and I think that it's important to acknowledge this. In such a diverse community as this, there will always be a conflict of ideas and beliefs in what methods are morally right and which are frowned upon, especially more in an somewhat unregulated marketplace. This is, as the rest of the world functions in nearly the same way, nothing special. But given my time here, it has shed some light on situations I didn't notice in the beginning.
 
@@ -22,7 +27,7 @@ I have since permanently removed every single illegitimate copy of every tweak o
 
 As the days went on, I witnessed a beginner that was just like me a few weeks ago create a tweak that was simple enough of implementing dark mode for apps that I use that didn't natively support it. This was by far enough encouragement and reason for me to finally give tweak development a try, but the only problem that I truly had was a lack of ideas to make anything unique. 
 
-### Currently
+#### Currently
 
 A tweak is only as good as the idea itself. No matter how good a tweak is written, if it fails to find an audience that feels that the tweak satisfies a need, then it becomes slowly lost into the depths of an oversaturated marketplace. I wish to write a simple enough of a tweak to the best of my capabilities, but if I feel that the work itself is overdone by others, then I have little incentive to work on something that would be a waste of my time and energy. I can perfectly accept the possibility of my work being lost, because as mentioned before, the real world operates in just the same way, and this community is no different. But for something that I do in my free time as just a personal venture, if I don't feel that the project is meaningful to myself, then I prefer to spend my time elsewhere. 
 
@@ -32,7 +37,7 @@ That's why I'll leave this project here as a momento for myself that I was able 
 
 However, after the statement I just said, I feel that I need to apologize to every single person that helped me along the way, because without every single person that I'm about to list off, this tweak wouldn't exist. And if they're anything like me, they may find that their own time was valuable, and for them to hear that their time was spent for a purpose that was never planned to be continued for the future... well, I've always felt terrible asking them all for help. 
 
-### Thank you so much
+#### Thank You So Much
 
 - [**Azzou**](https://twitter.com/AzzouDuGhetto) for providing everything necessary to help me create the editable list preference panel to add as many images as needed, biggest thanks to him, as without him taking so much time out of his day to explain and answer my numerous questions about specifiers, this tweak literally wouldn't exist the way it is, especially when I accidentally performed a satanic ritual on his phone. He's been an amazing help when I needed it the most, beyond anything that I had expected, so I desperately need to express my biggest thanks again.
 
