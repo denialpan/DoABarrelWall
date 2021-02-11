@@ -6,7 +6,7 @@ Because these people are more important than the tweak itself.
 
 ### Table Of Contents
 - Prologue
-- Present Day
+- Current Thoughts
 - Thank You So Much (where contributors list actually start)
 - Conclusion
 
