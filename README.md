@@ -9,4 +9,4 @@ I find the Jailbreak community to be a strange place. It encapsulates much of ho
 
 The Jailbreak community has the same people that exist in nearly every online community that surrounds themselves on a usable product:
 
-- Newcomers: Those interested in what the community has to offer and usually start off asking basic questions on where to begin.
+- **Newcomers:** Those interested in what the community has to offer and usually start off asking basic questions on where to begin.
