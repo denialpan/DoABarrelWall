@@ -6,7 +6,7 @@ Because these people are more important than the tweak itself.
 
 ### Table Of Contents
 - Prologue
-- Currently
+- Present Day
 - Thank You So Much (where contributors list actually start)
 - Conclusion
 
@@ -65,5 +65,9 @@ While these people below didn't directly involve themselves with the physical as
 
 And then this legend, because without his videos overall, I would have immediately abandoned my idea since the beginning.
 - [**Zane Helton**](https://www.youtube.com/watch?v=uNXd4KLLjhk&list=PLFWEDfSyl7h_K8Ew4rwTzlUPgWU7nKYri) for his amazing tweak development tutorial series, even though it's slightly outdated, but it was enough encouragement for even for a dummy like me to give tweak development a try.
+
+#### Conclusion
+
+This journey to end up with this project has been quite an experience, and I most certainly don't regret it. I'm incredibly grateful for the amazing people that I was able to interact with, all of you are truly the best. While I may be done with tweak development likely forever, I'll still be around to see what's new, and that's something I don't want to miss. Thank you again.
 
 [Free Release] DoABarrelWall, change lockscreen and homescreen wallpapers with an "unlimited" set amount of images when unlocking device.
