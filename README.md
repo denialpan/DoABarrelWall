@@ -11,5 +11,5 @@ The Jailbreak community has the same people that exist in nearly every online co
 
 - **Newcomers:** Those interested in what the community has to offer and usually start off asking basic questions.
 - **Active Users:** Those that spend some time every day in the community to see what's new and to help others when they can.
-- **Providers:** Those that provide a service for the community, which in this community, are mostly tweak developers.
-- **Piraters:** Those that are unable to have 
+- **Developers:** Those that provide a service for the community, most likely tweaks or a solution to an ongoing problem
+- **Piraters:** Those that are unable to pay for the tweaks provided by developers, either by choice or impossible for them to.
