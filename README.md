@@ -1,5 +1,6 @@
 # DoABarrelWall
 Cycle through lockscreen and homescreen wallpapers with an "unlimited" set amount of images. Similar idea that Android has.
+
 ## Contributors
 Because these people are more important than the tweak itself.
 
@@ -7,6 +8,7 @@ Because these people are more important than the tweak itself.
 - Prologue
 - Currently
 - Thank You So Much (where contributors list actually start)
+- Conclusion
 
 #### Prologue
 
