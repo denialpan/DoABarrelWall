@@ -43,12 +43,12 @@ However, after the statement I just said, I feel that I need to apologize to eve
 - [**Litten**](https://twitter.com/schneelittchen) for inadvertently telling me that tweak development in Windows 10 is possible, therefore starting this whole adventure to creating this project and being so kind to help me the entire way. Even though I read over the basic syntax of obj-c, I find that being able to refer to her many open source of works that I personally use on a daily basis and receiving detailed explanations and suggestions from her proved to be the best resource possible, so I wholeheartedly need to express my thanks there.
 
 There is also a community where I've received help for more technical things of setting up my environment properly and giving me a general idea of how tweaks work, so I'd like to credit these amazing people too.
-- **Beckett** in the iOS Development server for helping me since the beginning to lead me in the right direction for properly setting up Theos and the required toolchains, removing the initial worries I had about creating a tweak on a Windows 10 computer.
-- **Galactic** in the iOS development server for helping me with the fundamentals of Logos syntax and how preferences work.
+- [**Beckett**](https://twitter.com/icrazeios) in the iOS Development server for helping me since the beginning to lead me in the right direction for properly setting up Theos and the required toolchains, removing the initial worries I had about creating a tweak on a Windows 10 computer.
+- [**Galactic**](https://twitter.com/dev_galactic) in the iOS development server for helping me with the fundamentals of Logos syntax and how preferences work.
 - **YulkyTulky** in the iOS development server for taking time out of his day to help me with color pickers.
 - **iCraze** in the iOS development server for answering my question about how %group and %init work.
-- **Lazy** in the iOS development server for explaining why a part of my code was wrong, therefore helping to prevent me from developing bad habits. 
-- **Lacertosus** for his many open source projects on github that made me understand how UIViews worked.
+- [**Lazy**](https://twitter.com/wackyyaf) in the iOS development server for explaining why a part of my code was wrong, therefore helping to prevent me from developing bad habits. 
+- [**Lacertosus**](https://twitter.com/LacertosusDeus) for his many open source projects on github that made me understand how UIViews worked.
 
 While these people below didn't directly involve themselves with the physical aspects of the tweak, I still credit them here because they decided to take time out of their day to help me, and that is already more than enough, so I equally just as appreciate them as much as the people above.
 - **Woodfairy** and **Lightmann** for helping me troubleshoot for a dumb issue that I caused myself and ending up teaching me the basics of CLI. I can definitely see the importance behind being able to navigate through that quickly, so thank you so much. 
