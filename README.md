@@ -79,5 +79,3 @@ I'll still be around to see what's new in the community, that's something I don'
 ## Installation
 
 If you really want to know how to compile this project into a .deb on your own machine, I suggest you look up tutorials on getting the environment set up properly. Once you have a clear understanding of how it works, then when you come back to this page, you should know what to do. A note that this project depends heavily on [LibGcUniversal](https://github.com/MrGcGamer/LibGcUniversalDocumentation), as previously mentioned.
-
-[Free Release] DoABarrelWall, change lockscreen and homescreen wallpapers with an "unlimited" set amount of images when unlocking device.
