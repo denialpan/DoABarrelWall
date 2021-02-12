@@ -72,7 +72,7 @@ Am I a tweak developer? No, absolutely not, I don't believe I am based off of th
 
 This journey to end up with this project has been an experience that I don't regret at all. While I may be done with tweak development likely forever, the journey most certainly hasn't left me with learning nothing. I have definitely expanded my own knowledge of programming, where I've touched up on my interests of optimization methods, file pointers, and how threading generally works, and this I feel is essential as a way for me to apply what I've learned into career paths I plan to go into. None of this would have been possible without the circumstances of meeting such astounding people and what I have learned from each and every one of the them is beyond invaluable and means the world to me and I'm incredibly grateful for them, they are truly the best. 
 
-I'll still be around to see what's new in the community, that's something I don't want to miss. But I do want to end this off with a statement that you've heard me say so many times.
+I'll still be around to see what's new in the community, that's something I don't want to miss, but I do want to end this off with a statement that they've all heard me say so many times.
 
 *Thank you so much.*
 
