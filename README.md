@@ -50,7 +50,7 @@ However, after the statement I just said, I feel that I need to apologize to eve
 - [**Litten**](https://twitter.com/schneelittchen) for inadvertently telling me that tweak development in Windows 10 is possible, therefore starting this whole adventure to creating this project and being so kind to help me the entire way. Even though I read over the basic syntax of obj-c, I find that being able to refer to her many open source of works that I personally use on a daily basis and receiving detailed explanations and suggestions from her proved to be the best resource possible, so I wholeheartedly need to express my thanks there.
 
 There is also a [discord server](https://discord.gg/WWbjTum) where I've received help for more technical things of setting up my environment properly and giving me a general idea of how tweaks work, so I'd like to credit these amazing people too. 
-- [**Beckett**](https://github.com/BeckettOBrien) for helping me since the beginning to lead me in the right direction for properly setting up Theos and the required toolchains, removing the initial worries I had about creating a tweak on a Windows 10 computer.
+- [**Beckett**](https://github.com/BeckettOBrien) for helping me since the beginning to lead me in the right direction for properly setting up Theos and the required toolchains, thus removing the initial worries I had about creating a tweak on a Windows 10 computer.
 - [**Galactic**](https://twitter.com/dev_galactic) for helping me with the fundamentals of Logos syntax and how preferences work.
 - **YulkyTulky** for taking time out of his day to help me with color pickers.
 - [**iCraze**](https://twitter.com/icrazeios) for answering my question about how %group and %init work.
