@@ -7,7 +7,7 @@ Because these people are more important than the tweak itself.
 ### Table Of Contents
 - Prologue
 - Current Thoughts
-- Thank You So Much (where contributors list actually start)
+- Credits
 - Conclusion
 
 #### Prologue
