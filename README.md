@@ -72,7 +72,7 @@ While I may be done with tweak development likely forever, the journey hasn't le
 
 *Thank you so much.*
 
-##### Installation
+## Installation
 
 If you really want to know how to compile this project into a .deb on your own machine, I suggest you look up tutorials on getting the environment set up properly. Once you have a clear understanding of how it works, then when you come back to this page, you should know what to do. 
 
