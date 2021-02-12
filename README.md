@@ -70,6 +70,8 @@ And then this legend, because without his videos overall, I would have immediate
 
 While I may be done with tweak development likely forever, the journey hasn't left me with nothing. I have definitely expanded my own knowledge of programming, where I've touched up on interests of my own of optimization methods, file pointers, and how operating systems generally work, and this also wouldn't have been possible without these circumstances of meeting any of the peopl above. This journey to end up with this project has been quite an experience that I don't regret at all. What I have learned from each and every one of the people above is beyond invaluable to me and means the world to me. I'm incredibly grateful for the amazing people that I was able to interact with, all of them are truly the best. I'll still be around to see what's new in the community, that's something I don't want to miss. But I do want to end this off with a statement that you've heard me say so many times.
 
-Thank you so much.
+*Thank you so much.*
+
+- the mango guy 
 
 [Free Release] DoABarrelWall, change lockscreen and homescreen wallpapers with an "unlimited" set amount of images when unlocking device.
