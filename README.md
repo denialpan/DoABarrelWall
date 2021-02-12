@@ -39,7 +39,7 @@ Sadly, it is also very unlikely I'll update this project to make it compatible w
 
 However, after the statement I just said, I feel that I need to apologize to every single person that helped me along the way, because without every single person that I'm about to list off, this tweak wouldn't exist. And if they're anything like me, they may find that their own time was valuable, and for them to hear that their time was spent for a purpose that was never planned to be continued for the future... well, I've always felt terrible asking them all for help.
 
-#### Thank You So Much
+#### Credits
 
 - [**Azzou**](https://twitter.com/AzzouDuGhetto) for providing everything necessary to help me create the editable list preference panel to add as many images as needed, biggest thanks to him, as without him taking so much time out of his day to explain and answer my numerous questions about specifiers, this tweak literally wouldn't exist the way it is, especially when I accidentally performed a satanic ritual on his phone. He's been an amazing help when I needed it the most, beyond anything that I had expected, so I desperately need to express my biggest thanks again.
 
