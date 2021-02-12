@@ -27,7 +27,7 @@ I find myself fortunate that I was able to encounter a developer that open sourc
 
 I have since permanently removed every single illegitimate copy of every tweak off my device in August of 2020 after realizing that tweak development isn't as simple as it is, and my mediocre opinion for tweak developers have been replaced with newfound respect. At this point I still haven't given tweak development a try myself, with the reasons aforementioned of believing it requires unbelievable amount of skill to become one, but I stayed long enough in the community to slowly understand what makes a tweak run, the processes behind, and the fundamentals of how they are constructed. 
 
-As the days went on, I was able to witness a beginner, like me, that initially didn't know anything tweak development, a few weeks later create a tweak that was simple enough of implementing dark mode for apps that I use that didn't natively support it. This was by far enough encouragement and reason for me to finally give tweak development a try, but the only problem that I truly had was a lack of ideas to make anything unique. So, for months, I let the idea sit in my mind without doing anything about it.
+As the days went on, I was able to witness a beginner, like me, that initially didn't know anything tweak development, a few weeks later create a tweak that was simple enough of implementing dark mode for apps that I use that didn't natively support it. This was by far enough encouragement and reason for me to finally give tweak development a try, but the only problem that I truly had was a lack of ideas to make anything unique. So, for months, I let the idea of tweak development just sit in my mind.
 
 #### Current Thoughts
 
