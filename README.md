@@ -72,6 +72,6 @@ While I may be done with tweak development likely forever, the journey hasn't le
 
 *Thank you so much.*
 
-- the mango guy 
+-- the mango guy 
 
 [Free Release] DoABarrelWall, change lockscreen and homescreen wallpapers with an "unlimited" set amount of images when unlocking device.
