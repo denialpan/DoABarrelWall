@@ -51,13 +51,13 @@ However, after the statement I just said, I feel that I need to apologize to eve
 
 There is also a [discord server](https://discord.gg/WWbjTum) where I've received help for more technical things of setting up my environment properly and giving me a general idea of how tweaks work, so I'd like to credit these amazing people too. 
 - [**Beckett**](https://github.com/BeckettOBrien) for helping me since the beginning to lead me in the right direction for properly setting up Theos and the required toolchains, thus removing the initial worries I had about creating a tweak on a Windows 10 computer.
+- [**Lacertosus**](https://twitter.com/LacertosusDeus) for his many open source projects on Github that made me understand how UIViews worked.
 - [**Galactic**](https://twitter.com/dev_galactic) for helping me with the fundamentals of Logos syntax and how preferences work.
-- **YulkyTulky** for taking time out of his day to help me with color pickers.
 - [**iCraze**](https://twitter.com/icrazeios) for answering my question about how %group and %init work.
 - [**Lazy**](https://twitter.com/wackyyaf) for explaining why a part of my code was wrong, therefore helping to prevent me from developing bad habits. 
-- [**Lacertosus**](https://twitter.com/LacertosusDeus) for his many open source projects on Github that made me understand how UIViews worked.
+- **YulkyTulky** for taking time out of his day to help me with troubleshooting color pickers.
 
-While these next people below didn't directly involve themselves with the physical aspects of the tweak, I still credit them here because they still decided to help me, and that is already more than enough, so I equally just as appreciate them as much as the people above.
+While these next people below didn't directly involve themselves with the physical aspects of the tweak, I still credit them here because they still decided to help me in other respects, and that is already more than enough, so I equally just as appreciate them as much as the people above.
 - [**Luki120**](https://twitter.com/Lukii120) for also helping me with the basics of how preferences work. However, more importantly, he was the silent motivation for me that tweak development is possible for a complete beginner like me. He had the same resources and help available as me and was able to create his own amazing work, so he was a big reason for me not to give up. 
 - [**Woodfairy**](https://twitter.com/woodfairyd) and [**Lightmann**](https://www.reddit.com/user/_lightmann/) for helping me troubleshoot for a dumb issue that I caused myself and ending up teaching me the basics of CLI. I can definitely see the importance behind being able to navigate through that quickly, so thank you for this new piece of knowledge.
 - [**Arya_06**](https://twitter.com/arya_1106) for helping when I literally didn't know what I was looking at and explaining the obj-c syntax for me, therefore making things clearer overall for me. Thank you for saving me so much time by helping me here, I truly appreciate it. 
