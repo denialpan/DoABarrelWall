@@ -29,7 +29,7 @@ I have since permanently removed every single illegitimate copy of every tweak o
 
 A few months passed by, but I still haven't given tweak development a try, with the reasons aforementioned of believing it requires unbelievable amount of skill to create one, but I stayed long enough in the community to slowly understand what makes a tweak run, the processes behind, and the fundamentals of how they are constructed. 
 
-As the days continued, I was able to witness a beginner, like me, that initially didn't know anything tweak development, later create a tweak that was simple enough of implementing dark mode for apps that I use that didn't natively support it. This was by far enough encouragement and reason for me to finally give tweak development a try, knowing it was most definitely possible for me now, but the only problem that I truly had was a lack of ideas to make anything unique. So I still let the idea of tweak development just sit in my mind.
+In one of those months, I was able to witness a beginner, like me, that initially didn't know anything tweak development, later create a tweak that was simple enough of implementing dark mode for apps that I use that didn't natively support it. This was by far enough encouragement and reason for me to finally give tweak development a try, knowing it was most definitely possible for me now, but the only problem that I truly had was a lack of ideas to make anything unique. So I still let the idea of tweak development just sit in my mind.
 
 #### Current Thoughts
 
