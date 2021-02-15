@@ -5,7 +5,7 @@ Cycle through lockscreen and homescreen wallpapers with an "unlimited" set amoun
 Because these people are more important than the tweak itself. This README.md file will be solely this.
 
 ### Table Of Contents
-- [Prologue](#### Prologue)
+- [Prologue](#Prologue)
 - Current Thoughts
 - Credits
 - Conclusion
