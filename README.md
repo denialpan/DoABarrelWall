@@ -6,9 +6,9 @@ Because these people are more important than the tweak itself. This README.md fi
 
 ### Table Of Contents
 - [Prologue](#Prologue)
-- Current Thoughts
-- Credits
-- Conclusion
+- [Current Thoughts](#Current Thoughts)
+- [Credits](#Credits)
+- [Conclusion](#Conclusion)
 
 #### Prologue
 
