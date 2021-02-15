@@ -39,7 +39,7 @@ I did eventually come up with a tweak idea that was simple enough that I was sur
 
 I'll still try to maintain this project the best I can, I won't completely abandon it, but I never intended to go fully into tweak development. It was always more of me to embark on an interesting venture to create something in such a strange sandboxed environment that Apple created, and that is where my fascination to write my own tweak to have it run in just the same environment stemmed from. 
 
-However, after the statement I just said, I feel that I need to apologize to every single person that helped me along the way, because without every single person that I'm about to list off, I wouldn't have been able to make it this far. If they're anything like me, they may find that their own time was valuable, and for them to hear that their time was spent for someone that never planned to use what he's learned from them for tweak development... well, I've always felt terrible when I asked for help. So I want to take the time to properly give them the appreciation they each deserve.
+However, after the statement I just said, I feel that I need to apologize to every single person that helped me along the way, because without every single person that I'm about to list off, I wouldn't have been able to make it this far. I've always felt terrible when I asked for help, so I want to take the time to properly give them the appreciation they each deserve.
 
 #### Credits
 
