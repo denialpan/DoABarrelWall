@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>items</key>
+	<array>
+
+        <dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>tap tap tap</string>
+			<key>footerText</key>
+			<string>If you leave this page without saving, your changes will be lost.</string>
+		</dict>
+		
+		<dict>
+			<key>cell</key>
+			<string>PSButtonCell</string>
+			<key>label</key>
+			<string>Add New Image</string>
+			<key>action</key>
+			<string>addImage</string>
+		</dict>
+
+		<dict>
+			<key>cell</key>
+			<string>PSButtonCell</string>
+			<key>label</key>
+			<string>Save and Respring</string>
+			<key>action</key>
+			<string>saveChanges</string>
+		</dict>
+
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>There better be more than one image below</string>
+		</dict>
+
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string>Disclaimer 1: Images not of similar aspect ratio as your device screen will have parts cutoff.</string>
+			<key>isStaticText</key>
+			<true/>
+		</dict>
+		
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string>Disclaimer 2: Cells not assigned an image will be your normal wallpaper.</string>
+			<key>isStaticText</key>
+			<true/>
+		</dict>
+		
+	</array>
+	<key>title</key>
+	<string>Wallpaper Image List</string>
+</dict>
+</plist>

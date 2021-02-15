@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>items</key>
+	<array>
+
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Contributors are more important</string>
+		</dict>
+
+		<dict>
+			<key>cell</key>
+			<string>PSButtonCell</string>
+			<key>label</key>
+			<string>Full Contributor List</string>
+			<key>action</key>
+			<string>contributorsList</string>
+		</dict> 
+
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Options</string>
+			<key>footerText</key>
+			<string>Sync both wallpapers makes the homescreen wallpaper the same as the lockscreen.</string>
+		</dict>
+
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>label</key>
+			<string>Enable Lockscreen Wallpaper</string>
+			<key>defaults</key>
+			<string>com.denial.doabarrelwallprefs</string>
+			<key>key</key>
+			<string>lockscreenEnabled</string>
+		</dict>
+
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>label</key>
+			<string>Enable Homescreen Wallpaper</string>
+			<key>defaults</key>
+			<string>com.denial.doabarrelwallprefs</string>
+			<key>key</key>
+			<string>homescreenEnabled</string>
+		</dict>
+
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>label</key>
+			<string>Sync Both Wallpapers</string>
+			<key>defaults</key>
+			<string>com.denial.doabarrelwallprefs</string>
+			<key>key</key>
+			<string>syncBothScreens</string>
+		</dict>
+
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>label</key>
+			<string>Dim Wallpapers On DND</string>
+			<key>defaults</key>
+			<string>com.denial.doabarrelwallprefs</string>
+			<key>key</key>
+			<string>dimEnabled</string>
+		</dict>
+
+		<dict>
+			<key>cell</key>
+			<string>PSButtonCell</string>
+			<key>label</key>
+			<string>Respring</string>
+			<key>action</key>
+			<string>respringUtil</string>
+		</dict>
+
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>The fun part</string>
+			<key>footerText</key>
+			<string>Be wary of how many images you add. The more images selected, the slower this page will load. Given how iOS loads pages like these, there's only so much memory your device can allocate for. If the page repeatedly crashes, just reset everything below.</string>
+		</dict>
+
+		<dict>
+ 			<key>cell</key>
+ 			<string>PSLinkCell</string>
+ 			<key>label</key>
+ 			<string>Images</string>
+ 			<key>detail</key>
+ 			<string>DBWWallpaperImageList</string>
+ 			<key>DBWWalls</key>
+ 			<string>WallpaperImageList</string>
+ 		</dict>	
+
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Reset Everything</string>
+		</dict>
+
+		<dict>
+			<key>cell</key>
+			<string>PSButtonCell</string>
+			<key>label</key>
+			<string>Reset Preferences</string>
+			<key>action</key>
+			<string>resetPreferences</string>
+		</dict> 
+
+		<dict>
+			<key>cell</key>
+			<key>PSGroupCell</key>
+			<key>footerText</key>
+			<string>Extremely tired 😴</string>
+			<key>isStaticText</key>
+			<true/>
+			<key>footerAlignment</key>
+			<real>1</real>
+		</dict>
+		
+	</array>
+	<key>title</key>
+	<string>DoABarrelWall</string>
+</dict>
+</plist>
