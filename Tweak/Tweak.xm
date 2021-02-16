@@ -1,10 +1,10 @@
-#import <UIKit/UIKit.h>
 #import "DoABarrelWall.h"
-#import <AudioToolbox/AudioServices.h>
-#import "GcUniversal/GcColorPickerUtils.h"
-#import "GcUniversal/GcImagePickerUtils.h"
 
 @interface CSCoverSheetViewController : UIViewController 
+	
+@end
+
+@interface SBDashBoardViewController : UIViewController 
 	
 @end
 
@@ -20,10 +20,9 @@
 
 @end
 
-//this group is for the lockscreen section
-%group lockscreenWallpaper
+%group lockscreenWallpaper13
 
-	//because CSCoverSheetViewController is technically the notification center
+//because CSCoverSheetViewController is technically the notification center
 	%hook CSCoverSheetViewController
 	
 		- (void)viewDidLoad {
@@ -119,6 +118,112 @@
 		}
 
 	%end
+
+%end
+
+%group lockscreenWallpaper12 // ios 12 support
+
+//because CSCoverSheetViewController is technically the notification center
+	%hook SBDashBoardViewController
+	
+		- (void)viewDidLoad {
+ 
+			%orig;
+
+			/* dim and blur superview for when dim on dnd is enabled. 
+			   Because the CSCoverSheetViewController isn't affected by the system blur, this is a cheap way to simulate it
+			 */
+			dimBlurViewLS = [[UIView alloc] initWithFrame:[[self view] bounds]];
+			[dimBlurViewLS setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
+			if (![dimBlurViewLS isDescendantOfView:[self view]]) [[self view] insertSubview:dimBlurViewLS atIndex:1];
+			// blur
+			blurLS = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+			blurViewLS = [[UIVisualEffectView alloc] initWithEffect:blurLS];
+			[blurViewLS setFrame:[dimBlurViewLS bounds]];
+			[blurViewLS setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
+			[blurViewLS setClipsToBounds:YES];
+			[blurViewLS setAlpha:0.9];
+			if (![blurViewLS isDescendantOfView:dimBlurViewLS]) [dimBlurViewLS addSubview:blurViewLS];
+			// dim
+			dimViewLS = [[UIView alloc] initWithFrame:[[self view] bounds]];
+			[dimViewLS setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
+			[dimViewLS setBackgroundColor:[UIColor blackColor]];
+			[dimViewLS setAlpha:0.7];
+			if (![dimViewLS isDescendantOfView:dimBlurViewLS]) [dimBlurViewLS addSubview:dimViewLS];
+			//gonna be honest everything above I ctrl c ctrl v directly from Litten's github because I'm too lazy to do it myself lol
+			//but essentially it's dim and blur subviews put into one big view, or at least i think so
+
+			//set image view to the dimensions of the entire phone screen
+			wallpaperImageViewLS = [[UIImageView alloc] initWithFrame:[[self view] bounds]];
+			
+			//set properties so that the image isn't distorted when filling the entire view
+			[wallpaperImageViewLS setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
+        	[wallpaperImageViewLS setContentMode:UIViewContentModeScaleAspectFill];
+        	[wallpaperImageViewLS setClipsToBounds:YES];
+			
+			//add the view to the actual screen
+			[[self view] insertSubview:wallpaperImageViewLS atIndex:0];
+
+		}
+
+		//this method handles when the notification center is invoked on the homescreen, 
+		//because this view CSCoverSheetViewController is shown for both the lockscreen and notification center 
+		- (void)viewWillAppear:(BOOL)animated {
+
+			%orig;
+
+			//this avoids the same wallpaper being displayed twice
+			while ([previousLSVariable isEqualToString:variableLSName]) {
+
+				//if the previous image variable is the same as the current chosen one, pick another random one until it isn't
+				variableLSName = [imageVariableList objectAtIndex:arc4random_uniform([imageVariableList count])];
+
+			}
+
+			//how caching images is implemented
+			if (![cacheImageList objectForKey:variableLSName]) {
+
+				//if dctionary doesnt contain image with appropriate keyword, cache image for the first time 
+				UIImage *cacheImage = [GcImagePickerUtils imageFromDefaults:@"com.denial.doabarrelwallprefs" withKey:variableLSName];
+
+				if (!(cacheImage == nil)) {	//if the cache image has an image linked to it
+
+					[wallpaperImageViewLS setImage:cacheImage];
+					[cacheImageList setObject:cacheImage forKey:variableLSName];
+
+				} else { //if it doesn't, set image view to nothing
+
+					[wallpaperImageViewLS setImage:nil];
+
+				}
+				
+				
+			} else {
+				
+				//if a cache image already exists, then call this instead of having to use the library 
+				[wallpaperImageViewLS setImage:cacheImageList[variableLSName]];
+
+			}
+
+			//if the option to sync the homescreen wallpaper with the lockscreen is active
+			//set this boolean to true, will be later handled to false when homescreen is in view
+			if (syncBothScreens) {
+
+				cameFromLockscreen = TRUE;
+				
+			}
+
+			//set this variable to what the current image variable so the same image doesn't show up twice
+			previousLSVariable = variableLSName;	
+
+		}
+
+	%end
+
+%end
+
+//this group is for the lockscreen section
+%group lockscreenWallpaperCompletion
 
 	/*Initially, I had the hook to be whenever the power button was pressed (which was meant to simulate when the phone was put to sleep).
 	  However, this was terrible, as it performed extraneous actions in events that I didn't want it to, such as turning the phone back on..
@@ -342,7 +447,9 @@
 	if (lockscreenEnabled) {
 		
 		//initialize lockscreen section
-		%init(lockscreenWallpaper);
+		if (!SYSTEM_VERSION_LESS_THAN(@"13")) %init(lockscreenWallpaper13);
+		else if (SYSTEM_VERSION_LESS_THAN(@"13")) %init(lockscreenWallpaper12);
+		%init(lockscreenWallpaperCompletion);
 
 	}
 
