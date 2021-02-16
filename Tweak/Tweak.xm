@@ -123,7 +123,7 @@
 
 %group lockscreenWallpaper12 // ios 12 support
 
-//because CSCoverSheetViewController is technically the notification center
+//because SBDashBoardViewController is technically the notification center
 	%hook SBDashBoardViewController
 	
 		- (void)viewDidLoad {
