@@ -18,7 +18,11 @@ BOOL syncBothScreens;                   //if sync both lockscreen and homescreen
 BOOL dimEnabled;                        //if dim wallpapers on dnd is enabled
 
 BOOL cameFromLockscreen;                //if the user just came from the lockscreen
+BOOL disableChangeOnAppExit;            //if user wants the wallpaper to only change by lockscreen
 BOOL isDNDActive;                       //if the DND is active
+BOOL isDeviceLocked;                    //gets state of device 
+
+NSUInteger numberOfImagesToCache;       //thanks gc for clarifying that NSUInteger is a primitive type, not an object lol
 
 UIImageView *wallpaperImageViewLS;      //image view used for the lockscreen
 UIImageView *wallpaperImageViewHS;      //image view used for the homescreen
@@ -36,4 +40,4 @@ NSString *variableLSName;               //string to set current chosen lockscree
 NSString *variableHSName;               //string to set current chosen homescreen image variable
 
 NSArray *imageVariableList;             //array to hold all the available image variables to choose from
-NSMutableDictionary *cacheImageList;    //dictionary array to hold cache images 
+NSCache *cacheImageList;                //dictionary array to hold cache images 

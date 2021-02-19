@@ -20,6 +20,8 @@
 
 @end
 
+//big thanks to gc giving the best suggestion to optimize my tweak before release by caching images
+
 %group lockscreenWallpaper13
 
 //because CSCoverSheetViewController is technically the notification center
@@ -63,6 +65,8 @@
 			//add the view to the actual screen
 			[[self view] insertSubview:wallpaperImageViewLS atIndex:0];
 
+			
+
 		}
 
 		//this method handles when the notification center is invoked on the homescreen, 
@@ -96,11 +100,10 @@
 
 				}
 				
-				
 			} else {
 				
 				//if a cache image already exists, then call this instead of having to use the library 
-				[wallpaperImageViewLS setImage:cacheImageList[variableLSName]];
+				[wallpaperImageViewLS setImage:[cacheImageList objectForKey:variableLSName]];
 
 			}
 
@@ -201,7 +204,7 @@
 			} else {
 				
 				//if a cache image already exists, then call this instead of having to use the library 
-				[wallpaperImageViewLS setImage:cacheImageList[variableLSName]];
+				[wallpaperImageViewLS setImage:[cacheImageList objectForKey:variableLSName]];
 
 			}
 
@@ -236,6 +239,8 @@
 
 			%orig;
 
+			isDeviceLocked = TRUE;
+			
 			while ([previousLSVariable isEqualToString:variableLSName]) {
 				
 				variableLSName = [imageVariableList objectAtIndex:arc4random_uniform([imageVariableList count])];
@@ -259,7 +264,7 @@
 				
 			} else {
 
-				[wallpaperImageViewLS setImage:cacheImageList[variableLSName]];
+				[wallpaperImageViewLS setImage:[cacheImageList objectForKey:variableLSName]];
 
 			}
 
@@ -364,44 +369,79 @@
 			//if the homescreen is viewed for the first time after the lockscreen or notification center, set image to what the lockscreen was
 			if (cameFromLockscreen && syncBothScreens) {
 				
-				[wallpaperImageViewHS setImage:cacheImageList[variableLSName]];
+				[wallpaperImageViewHS setImage:[cacheImageList objectForKey:variableLSName]];
 
 				//set to false to ensure that if the user left the homescreen
 				//but came back to it without unlocking the device, to not use the lockscreen or notification center image	
 				cameFromLockscreen = FALSE;
 				
-			} else { //if the above doesn't happen, continue as normal
+			} else {
 
-				while ([previousHSVariable isEqualToString:variableHSName]) {
+				//new thing to disable wallpaper change when leaving apps (however still change wallpaper normally if unlocking device for the first time)
+				if (isDeviceLocked && disableChangeOnAppExit) {
 
-					variableHSName = [imageVariableList objectAtIndex:arc4random_uniform([imageVariableList count])];
-				}
+					while ([previousHSVariable isEqualToString:variableHSName]) {
 
-				if (![cacheImageList objectForKey:variableHSName]) {
+						variableHSName = [imageVariableList objectAtIndex:arc4random_uniform([imageVariableList count])];
+					}
 
-					UIImage *cacheImage = [GcImagePickerUtils imageFromDefaults:@"com.denial.doabarrelwallprefs" withKey:variableHSName];
-					if (!(cacheImage == nil)) {
+					if (![cacheImageList objectForKey:variableHSName]) {
 
-						[wallpaperImageViewHS setImage:cacheImage];
-						[cacheImageList setObject:cacheImage forKey:variableHSName];
+						UIImage *cacheImage = [GcImagePickerUtils imageFromDefaults:@"com.denial.doabarrelwallprefs" withKey:variableHSName];
+						if (!(cacheImage == nil)) {
+
+							[wallpaperImageViewHS setImage:cacheImage];
+							[cacheImageList setObject:cacheImage forKey:variableHSName];
+							
+						} else {
+
+							[wallpaperImageViewHS setImage:nil];
+
+						}
 						
 					} else {
 
-						[wallpaperImageViewHS setImage:nil];
-
-					}
+						[wallpaperImageViewHS setImage:[cacheImageList objectForKey:variableHSName]];
 					
-				} else {
+					}
 
-					[wallpaperImageViewHS setImage:cacheImageList[variableHSName]];
-				
-				}
+					previousHSVariable = variableHSName;	
+					isDeviceLocked = FALSE;
+
+				} else if (!disableChangeOnAppExit) { //if the above doesn't happen, continue as normal
+
+					while ([previousHSVariable isEqualToString:variableHSName]) {
+
+						variableHSName = [imageVariableList objectAtIndex:arc4random_uniform([imageVariableList count])];
+					}
+
+					if (![cacheImageList objectForKey:variableHSName]) {
+
+						UIImage *cacheImage = [GcImagePickerUtils imageFromDefaults:@"com.denial.doabarrelwallprefs" withKey:variableHSName];
+						if (!(cacheImage == nil)) {
+
+							[wallpaperImageViewHS setImage:cacheImage];
+							[cacheImageList setObject:cacheImage forKey:variableHSName];
+							
+						} else {
+
+							[wallpaperImageViewHS setImage:nil];
+
+						}
+						
+					} else {
+
+						[wallpaperImageViewHS setImage:[cacheImageList objectForKey:variableHSName]];
+					
+					}
 
 				previousHSVariable = variableHSName;	
 
 			}
 
 			%orig;
+
+			}
 
 		} 
 		
@@ -420,6 +460,11 @@
 	[preferences registerBool:&homescreenEnabled default:NO forKey:@"homescreenEnabled"];
 	[preferences registerBool:&dimEnabled default:NO forKey:@"dimEnabled"];
 	[preferences registerBool:&syncBothScreens default:NO forKey:@"syncBothScreens"];
+	[preferences registerBool:&disableChangeOnAppExit default:NO forKey:@"disableChangeOnAppExit"];
+
+	[preferences registerUnsignedInteger:&numberOfImagesToCache default:5 forKey:@"numberOfImagesToCache"];
+
+	//NSUInteger numberOfImagesToCacheCastedInt = (NSUInteger)numberOfImagesToCache;
 
 	//if either one of the sections are enabled, then set these values, otherwise, dont bother to save on resources
 	if (lockscreenEnabled || homescreenEnabled) {
@@ -438,7 +483,10 @@
 			previousHSVariable = @"";
 
 			//create/refresh cache dictionary
-			cacheImageList = [NSMutableDictionary new];	
+			cacheImageList = [NSCache new];	
+			[cacheImageList setCountLimit:numberOfImagesToCache];
+
+			isDeviceLocked = TRUE; 
 
 		}
 
