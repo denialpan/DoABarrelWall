@@ -9,7 +9,7 @@
 @end
 
 @interface SBIconController : UIViewController
-
+- (void)updateWallpaper;
 @end
 
 @interface DNDState : UIViewController
@@ -170,7 +170,7 @@
 		}
 
 		//this method handles when the notification center is invoked on the homescreen, 
-		//because this view CSCoverSheetViewController is shown for both the lockscreen and notification center 
+		//because this view SBDashBoardViewController is shown for both the lockscreen and notification center 
 		- (void)viewWillAppear:(BOOL)animated {
 
 			%orig;
@@ -366,6 +366,25 @@
 		//this method handles when the homescreen is put back into view, mainly after the notification center is lifted up 
 		- (void)viewWillAppear:(BOOL)animated {
 			
+			%orig;
+			
+			[self updateWallpaper];
+
+		}
+
+		//i hate ios 12, i almost died finding this ~Litten
+		- (id)contentView {
+			
+			if (!SYSTEM_VERSION_LESS_THAN(@"13")) return %orig;
+			[self updateWallpaper];
+
+			return %orig;
+
+		}
+
+		%new
+		- (void)updateWallpaper {
+
 			//if the homescreen is viewed for the first time after the lockscreen or notification center, set image to what the lockscreen was
 			if (cameFromLockscreen && syncBothScreens) {
 				
@@ -437,13 +456,11 @@
 
 				previousHSVariable = variableHSName;	
 
-			}
-
-			%orig;
+				}
 
 			}
 
-		} 
+		}
 		
  	%end
 
