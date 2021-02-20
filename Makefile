@@ -1,10 +1,5 @@
 export ARCHS = arm64 arm64e
-export TARGET = iphone:clang:13.5:13.0
-export SYSROOT = $(THEOS)/sdks/iPhoneOS13.5.sdk/
-export PREFIX = $(THEOS)/toolchain/Xcode.xctoolchain/usr/bin/
-
-# export ARCHS = arm64 arm64e
-# export TARGET := iphone:clang:latest:10.3
+export TARGET := iphone:clang:latest:10.3
 
 INSTALL_TARGET_PROCESSES = SpringBoard
 SUBPROJECTS += Tweak Prefs
