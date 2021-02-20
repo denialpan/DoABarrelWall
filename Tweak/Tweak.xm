@@ -372,7 +372,7 @@
 
 		}
 
-		//i hate ios 12, i almost died finding this ~Litten
+		//i hate ios 12, i almost died doing this ~Litten
 		- (id)contentView {
 			
 			if (!SYSTEM_VERSION_LESS_THAN(@"13")) return %orig;
@@ -388,7 +388,12 @@
 			//if the homescreen is viewed for the first time after the lockscreen or notification center, set image to what the lockscreen was
 			if (cameFromLockscreen && syncBothScreens) {
 				
-				[wallpaperImageViewHS setImage:[cacheImageList objectForKey:variableLSName]];
+				if (!SYSTEM_VERSION_LESS_THAN(@"13"))
+					[wallpaperImageViewHS setImage:[cacheImageList objectForKey:variableLSName]];
+				else
+					[UIView transitionWithView:wallpaperImageViewHS duration:0.15 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+						[wallpaperImageViewHS setImage:[cacheImageList objectForKey:variableLSName]];
+					} completion:nil];
 
 				//set to false to ensure that if the user left the homescreen
 				//but came back to it without unlocking the device, to not use the lockscreen or notification center image	
@@ -408,8 +413,13 @@
 
 						UIImage *cacheImage = [GcImagePickerUtils imageFromDefaults:@"com.denial.doabarrelwallprefs" withKey:variableHSName];
 						if (!(cacheImage == nil)) {
-
-							[wallpaperImageViewHS setImage:cacheImage];
+							
+							if (!SYSTEM_VERSION_LESS_THAN(@"13"))
+								[wallpaperImageViewHS setImage:cacheImage];
+							else
+								[UIView transitionWithView:wallpaperImageViewHS duration:0.15 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+									[wallpaperImageViewHS setImage:cacheImage];
+								} completion:nil];
 							[cacheImageList setObject:cacheImage forKey:variableHSName];
 							
 						} else {
@@ -419,8 +429,13 @@
 						}
 						
 					} else {
-
-						[wallpaperImageViewHS setImage:[cacheImageList objectForKey:variableHSName]];
+						
+						if (!SYSTEM_VERSION_LESS_THAN(@"13"))
+							[wallpaperImageViewHS setImage:[cacheImageList objectForKey:variableHSName]];
+						else
+							[UIView transitionWithView:wallpaperImageViewHS duration:0.15 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+								[wallpaperImageViewHS setImage:[cacheImageList objectForKey:variableHSName]];
+							} completion:nil];
 					
 					}
 
