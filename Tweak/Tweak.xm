@@ -230,7 +230,7 @@
 
 	/*Initially, I had the hook to be whenever the power button was pressed (which was meant to simulate when the phone was put to sleep).
 	  However, this was terrible, as it performed extraneous actions in events that I didn't want it to, such as turning the phone back on..
-	  Thanks @Liteeen for providing a better hook that detects when the phone is going into a sleeping state, not a repeated button press.*/ 
+	  Thanks Litten for providing a better hook that detects when the phone is going into a sleeping state, not a repeated button press.*/ 
 
 	 //not as much comments here, does the same thing above 
 	%hook SBLockScreenManager
@@ -483,7 +483,7 @@
 			previousHSVariable = @"";
 
 			//create/refresh cache dictionary
-			cacheImageList = [NSCache new];	
+			cacheImageList = [[NSCache alloc] init];
 			[cacheImageList setCountLimit:numberOfImagesToCache];
 
 			isDeviceLocked = TRUE; 
