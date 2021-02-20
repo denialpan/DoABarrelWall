@@ -9,7 +9,7 @@
 @end
 
 @interface SBIconController : UIViewController
-
+- (void)updateWallpaper;
 @end
 
 @interface DNDState : UIViewController
@@ -170,7 +170,7 @@
 		}
 
 		//this method handles when the notification center is invoked on the homescreen, 
-		//because this view CSCoverSheetViewController is shown for both the lockscreen and notification center 
+		//because this view SBDashBoardViewController is shown for both the lockscreen and notification center 
 		- (void)viewWillAppear:(BOOL)animated {
 
 			%orig;
@@ -230,7 +230,7 @@
 
 	/*Initially, I had the hook to be whenever the power button was pressed (which was meant to simulate when the phone was put to sleep).
 	  However, this was terrible, as it performed extraneous actions in events that I didn't want it to, such as turning the phone back on..
-	  Thanks @Liteeen for providing a better hook that detects when the phone is going into a sleeping state, not a repeated button press.*/ 
+	  Thanks Litten for providing a better hook that detects when the phone is going into a sleeping state, not a repeated button press.*/ 
 
 	 //not as much comments here, does the same thing above 
 	%hook SBLockScreenManager
@@ -366,10 +366,34 @@
 		//this method handles when the homescreen is put back into view, mainly after the notification center is lifted up 
 		- (void)viewWillAppear:(BOOL)animated {
 			
+			%orig;
+			
+			[self updateWallpaper];
+
+		}
+
+		//i hate ios 12, i almost died doing this ~Litten
+		- (id)contentView {
+			
+			if (!SYSTEM_VERSION_LESS_THAN(@"13")) return %orig;
+			[self updateWallpaper];
+
+			return %orig;
+
+		}
+
+		%new
+		- (void)updateWallpaper {
+
 			//if the homescreen is viewed for the first time after the lockscreen or notification center, set image to what the lockscreen was
 			if (cameFromLockscreen && syncBothScreens) {
 				
-				[wallpaperImageViewHS setImage:[cacheImageList objectForKey:variableLSName]];
+				if (!SYSTEM_VERSION_LESS_THAN(@"13"))
+					[wallpaperImageViewHS setImage:[cacheImageList objectForKey:variableLSName]];
+				else
+					[UIView transitionWithView:wallpaperImageViewHS duration:0.15 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+						[wallpaperImageViewHS setImage:[cacheImageList objectForKey:variableLSName]];
+					} completion:nil];
 
 				//set to false to ensure that if the user left the homescreen
 				//but came back to it without unlocking the device, to not use the lockscreen or notification center image	
@@ -389,8 +413,13 @@
 
 						UIImage *cacheImage = [GcImagePickerUtils imageFromDefaults:@"com.denial.doabarrelwallprefs" withKey:variableHSName];
 						if (!(cacheImage == nil)) {
-
-							[wallpaperImageViewHS setImage:cacheImage];
+							
+							if (!SYSTEM_VERSION_LESS_THAN(@"13"))
+								[wallpaperImageViewHS setImage:cacheImage];
+							else
+								[UIView transitionWithView:wallpaperImageViewHS duration:0.15 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+									[wallpaperImageViewHS setImage:cacheImage];
+								} completion:nil];
 							[cacheImageList setObject:cacheImage forKey:variableHSName];
 							
 						} else {
@@ -400,8 +429,13 @@
 						}
 						
 					} else {
-
-						[wallpaperImageViewHS setImage:[cacheImageList objectForKey:variableHSName]];
+						
+						if (!SYSTEM_VERSION_LESS_THAN(@"13"))
+							[wallpaperImageViewHS setImage:[cacheImageList objectForKey:variableHSName]];
+						else
+							[UIView transitionWithView:wallpaperImageViewHS duration:0.15 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+								[wallpaperImageViewHS setImage:[cacheImageList objectForKey:variableHSName]];
+							} completion:nil];
 					
 					}
 
@@ -437,13 +471,11 @@
 
 				previousHSVariable = variableHSName;	
 
-			}
-
-			%orig;
+				}
 
 			}
 
-		} 
+		}
 		
  	%end
 
@@ -483,7 +515,7 @@
 			previousHSVariable = @"";
 
 			//create/refresh cache dictionary
-			cacheImageList = [NSCache new];	
+			cacheImageList = [[NSCache alloc] init];
 			[cacheImageList setCountLimit:numberOfImagesToCache];
 
 			isDeviceLocked = TRUE; 
