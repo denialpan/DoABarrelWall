@@ -186,7 +186,7 @@
 			//how caching images is implemented
 			if (![cacheImageList objectForKey:variableLSName]) {
 
-				//if dctionary doesnt contain image with appropriate keyword, cache image for the first time 
+				//if dictionary doesnt contain image with appropriate keyword, cache image for the first time 
 				UIImage *cacheImage = [GcImagePickerUtils imageFromDefaults:@"com.denial.doabarrelwallprefs" withKey:variableLSName];
 
 				if (!(cacheImage == nil)) {	//if the cache image has an image linked to it
@@ -199,7 +199,6 @@
 					[wallpaperImageViewLS setImage:nil];
 
 				}
-				
 				
 			} else {
 				
@@ -231,8 +230,6 @@
 	/*Initially, I had the hook to be whenever the power button was pressed (which was meant to simulate when the phone was put to sleep).
 	  However, this was terrible, as it performed extraneous actions in events that I didn't want it to, such as turning the phone back on..
 	  Thanks Litten for providing a better hook that detects when the phone is going into a sleeping state, not a repeated button press.*/ 
-
-	 //not as much comments here, does the same thing above 
 	%hook SBLockScreenManager
 
 		- (void)lockUIFromSource:(int)arg1 withOptions:(id)arg2 completion:(id)arg3 { 
@@ -280,7 +277,7 @@
 
 	%end
 
-	/* Thank you Litten for explaining how notifications and observers work, extremely big help here*/
+	//Thank you Litten for explaining how notifications and observers work, extremely big help here
 
 	//force the dnd state to be detected immediately after respring
 	%hook SpringBoard
@@ -299,7 +296,6 @@
 
 	//detect when Do Not Disturb is active
 	//thank you Arya_06 for pointing this small setting out, never knew that this dimming option existed natively for normal homescreen
-
 	%hook DNDState
 
 		- (id)initWithCoder:(id)arg1 {
@@ -381,7 +377,7 @@
 			return %orig;
 
 		}
-
+		
 		%new
 		- (void)updateWallpaper {
 
@@ -496,8 +492,6 @@
 
 	[preferences registerUnsignedInteger:&numberOfImagesToCache default:5 forKey:@"numberOfImagesToCache"];
 
-	//NSUInteger numberOfImagesToCacheCastedInt = (NSUInteger)numberOfImagesToCache;
-
 	//if either one of the sections are enabled, then set these values, otherwise, dont bother to save on resources
 	if (lockscreenEnabled || homescreenEnabled) {
 
@@ -517,6 +511,9 @@
 			//create/refresh cache dictionary
 			cacheImageList = [[NSCache alloc] init];
 			[cacheImageList setCountLimit:numberOfImagesToCache];
+
+
+			[cacheImageList setEvictsObjectsWithDiscardedContent:YES]; //defaulted to no, but is not strictly enforced by implementation
 
 			isDeviceLocked = TRUE; 
 
