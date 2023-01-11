@@ -1,11 +1,6 @@
-#import <Preferences/PSListController.h>
-#import <Preferences/PSSpecifier.h>
-#import <CepheiPrefs/HBRootListController.h>
-#import <CepheiPrefs/HBAppearanceSettings.h>
-#import <Cephei/HBPreferences.h>
-#import <Cephei/HBRespringController.h>
-#import <spawn.h>
 #import "DBWRootListController.h"
+
+#define contributorsURL @"https://github.com/denialpan/DoABarrelWall/blob/main/README.md#Credits"
 
 HBPreferences *prefs;
 
@@ -33,16 +28,12 @@ HBPreferences *prefs;
 
 - (void)contributorsList {
 
-	[[UIApplication sharedApplication]
-	openURL:[NSURL URLWithString:@"https://github.com/denialpan/DoABarrelWall/blob/main/README.md#Credits"]
-	options:@{}
-	completionHandler:nil];
+	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:contributorsURL] options:@{} completionHandler:nil];
 
 }
 
 - (void)resetPreferences {
 
-	prefs = [[HBPreferences alloc] initWithIdentifier: @"com.denial.doabarrelwallprefs"];
 	[prefs removeAllObjects];
 
 	[[NSFileManager defaultManager] removeItemAtPath:@"/var/mobile/Library/Preferences/com.denial.doabarrelwallprefs/" error:nil];

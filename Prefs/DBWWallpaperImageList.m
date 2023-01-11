@@ -20,14 +20,6 @@
 */
 
 #import "DBWWallpaperImageList.h"
-#import <Preferences/PSListController.h>
-#import <Preferences/PSSpecifier.h>
-#import <CepheiPrefs/HBRootListController.h>
-#import <CepheiPrefs/HBAppearanceSettings.h>
-#import <Cephei/HBPreferences.h>
-#import <Cephei/HBRespringController.h>
-#import <spawn.h>
-#import <AudioToolbox/AudioServices.h>
 
 //preferences
 HBPreferences *prefs;
@@ -166,12 +158,12 @@ NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ012345
 //links plist
 - (void)loadFromSpecifier:(PSSpecifier *)specifier {
 
-    NSString *sub = [specifier propertyForKey:@"DBWWalls"];
-    NSString *title = [specifier name];
+	NSString *sub = [specifier propertyForKey:@"DBWWalls"];
+	NSString *title = [specifier name];
 
-    _specifiers = [[self loadSpecifiersFromPlistName:sub target:self] retain];
+	_specifiers = [[self loadSpecifiersFromPlistName:sub target:self] retain];
 
-    [self.navigationItem setTitle:title];
+	[self.navigationItem setTitle:title];
 
 }
 
