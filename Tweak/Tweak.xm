@@ -1,11 +1,11 @@
 #import "DoABarrelWall.h"
 
-@interface CSCoverSheetViewController : UIViewController 
-	
+@interface CSCoverSheetViewController : UIViewController
+
 @end
 
-@interface SBDashBoardViewController : UIViewController 
-	
+@interface SBDashBoardViewController : UIViewController
+
 @end
 
 @interface SBIconController : UIViewController
@@ -26,12 +26,12 @@
 
 //because CSCoverSheetViewController is technically the notification center
 	%hook CSCoverSheetViewController
-	
+
 		- (void)viewDidLoad {
- 
+
 			%orig;
 
-			/* dim and blur superview for when dim on dnd is enabled. 
+			/* dim and blur superview for when dim on dnd is enabled.
 			   Because the CSCoverSheetViewController isn't affected by the system blur, this is a cheap way to simulate it
 			 */
 			dimBlurViewLS = [[UIView alloc] initWithFrame:[[self view] bounds]];
@@ -56,21 +56,21 @@
 
 			//set image view to the dimensions of the entire phone screen
 			wallpaperImageViewLS = [[UIImageView alloc] initWithFrame:[[self view] bounds]];
-			
+
 			//set properties so that the image isn't distorted when filling the entire view
 			[wallpaperImageViewLS setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
-        	[wallpaperImageViewLS setContentMode:UIViewContentModeScaleAspectFill];
-        	[wallpaperImageViewLS setClipsToBounds:YES];
-			
+			[wallpaperImageViewLS setContentMode:UIViewContentModeScaleAspectFill];
+			[wallpaperImageViewLS setClipsToBounds:YES];
+
 			//add the view to the actual screen
 			[[self view] insertSubview:wallpaperImageViewLS atIndex:0];
 
-			
+
 
 		}
 
-		//this method handles when the notification center is invoked on the homescreen, 
-		//because this view CSCoverSheetViewController is shown for both the lockscreen and notification center 
+		//this method handles when the notification center is invoked on the homescreen,
+		//because this view CSCoverSheetViewController is shown for both the lockscreen and notification center
 		- (void)viewWillAppear:(BOOL)animated {
 
 			%orig;
@@ -86,7 +86,7 @@
 			//how caching images is implemented
 			if (![cacheImageList objectForKey:variableLSName]) {
 
-				//if dctionary doesnt contain image with appropriate keyword, cache image for the first time 
+				//if dctionary doesnt contain image with appropriate keyword, cache image for the first time
 				UIImage *cacheImage = [GcImagePickerUtils imageFromDefaults:@"com.denial.doabarrelwallprefs" withKey:variableLSName];
 
 				if (!(cacheImage == nil)) {	//if the cache image has an image linked to it
@@ -99,10 +99,10 @@
 					[wallpaperImageViewLS setImage:nil];
 
 				}
-				
+
 			} else {
-				
-				//if a cache image already exists, then call this instead of having to use the library 
+
+				//if a cache image already exists, then call this instead of having to use the library
 				[wallpaperImageViewLS setImage:[cacheImageList objectForKey:variableLSName]];
 
 			}
@@ -112,11 +112,11 @@
 			if (syncBothScreens) {
 
 				cameFromLockscreen = TRUE;
-				
+
 			}
 
 			//set this variable to what the current image variable so the same image doesn't show up twice
-			previousLSVariable = variableLSName;	
+			previousLSVariable = variableLSName;
 
 		}
 
@@ -128,12 +128,12 @@
 
 //because SBDashBoardViewController is technically the notification center
 	%hook SBDashBoardViewController
-	
+
 		- (void)viewDidLoad {
- 
+
 			%orig;
 
-			/* dim and blur superview for when dim on dnd is enabled. 
+			/* dim and blur superview for when dim on dnd is enabled.
 			   Because the CSCoverSheetViewController isn't affected by the system blur, this is a cheap way to simulate it
 			 */
 			dimBlurViewLS = [[UIView alloc] initWithFrame:[[self view] bounds]];
@@ -158,19 +158,19 @@
 
 			//set image view to the dimensions of the entire phone screen
 			wallpaperImageViewLS = [[UIImageView alloc] initWithFrame:[[self view] bounds]];
-			
+
 			//set properties so that the image isn't distorted when filling the entire view
 			[wallpaperImageViewLS setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
-        	[wallpaperImageViewLS setContentMode:UIViewContentModeScaleAspectFill];
-        	[wallpaperImageViewLS setClipsToBounds:YES];
-			
+			[wallpaperImageViewLS setContentMode:UIViewContentModeScaleAspectFill];
+			[wallpaperImageViewLS setClipsToBounds:YES];
+
 			//add the view to the actual screen
 			[[self view] insertSubview:wallpaperImageViewLS atIndex:0];
 
 		}
 
-		//this method handles when the notification center is invoked on the homescreen, 
-		//because this view SBDashBoardViewController is shown for both the lockscreen and notification center 
+		//this method handles when the notification center is invoked on the homescreen,
+		//because this view SBDashBoardViewController is shown for both the lockscreen and notification center
 		- (void)viewWillAppear:(BOOL)animated {
 
 			%orig;
@@ -186,7 +186,7 @@
 			//how caching images is implemented
 			if (![cacheImageList objectForKey:variableLSName]) {
 
-				//if dictionary doesnt contain image with appropriate keyword, cache image for the first time 
+				//if dictionary doesnt contain image with appropriate keyword, cache image for the first time
 				UIImage *cacheImage = [GcImagePickerUtils imageFromDefaults:@"com.denial.doabarrelwallprefs" withKey:variableLSName];
 
 				if (!(cacheImage == nil)) {	//if the cache image has an image linked to it
@@ -199,10 +199,10 @@
 					[wallpaperImageViewLS setImage:nil];
 
 				}
-				
+
 			} else {
-				
-				//if a cache image already exists, then call this instead of having to use the library 
+
+				//if a cache image already exists, then call this instead of having to use the library
 				[wallpaperImageViewLS setImage:[cacheImageList objectForKey:variableLSName]];
 
 			}
@@ -212,11 +212,11 @@
 			if (syncBothScreens) {
 
 				cameFromLockscreen = TRUE;
-				
+
 			}
 
 			//set this variable to what the current image variable so the same image doesn't show up twice
-			previousLSVariable = variableLSName;	
+			previousLSVariable = variableLSName;
 
 		}
 
@@ -229,17 +229,17 @@
 
 	/*Initially, I had the hook to be whenever the power button was pressed (which was meant to simulate when the phone was put to sleep).
 	  However, this was terrible, as it performed extraneous actions in events that I didn't want it to, such as turning the phone back on..
-	  Thanks Litten for providing a better hook that detects when the phone is going into a sleeping state, not a repeated button press.*/ 
+	  Thanks Litten for providing a better hook that detects when the phone is going into a sleeping state, not a repeated button press.*/
 	%hook SBLockScreenManager
 
-		- (void)lockUIFromSource:(int)arg1 withOptions:(id)arg2 completion:(id)arg3 { 
+		- (void)lockUIFromSource:(int)arg1 withOptions:(id)arg2 completion:(id)arg3 {
 
 			%orig;
 
 			isDeviceLocked = TRUE;
-			
+
 			while ([previousLSVariable isEqualToString:variableLSName]) {
-				
+
 				variableLSName = [imageVariableList objectAtIndex:arc4random_uniform([imageVariableList count])];
 
 			}
@@ -252,13 +252,13 @@
 
 					[wallpaperImageViewLS setImage:cacheImage];
 					[cacheImageList setObject:cacheImage forKey:variableLSName];
-					
+
 				} else {
 
 					[wallpaperImageViewLS setImage:nil];
 
 				}
-				
+
 			} else {
 
 				[wallpaperImageViewLS setImage:[cacheImageList objectForKey:variableLSName]];
@@ -268,11 +268,11 @@
 			if (syncBothScreens) {
 
 				cameFromLockscreen = TRUE;
-				
+
 			}
 
-			previousLSVariable = variableLSName;	
-			
+			previousLSVariable = variableLSName;
+
 		}
 
 	%end
@@ -299,9 +299,9 @@
 	%hook DNDState
 
 		- (id)initWithCoder:(id)arg1 {
-			
+
 			/*as how Litten put it: removeObserver removes all observers, also the ones from other tweaks, so be careful when to use it*/
-			[[NSNotificationCenter defaultCenter] removeObserver:self]; 
+			[[NSNotificationCenter defaultCenter] removeObserver:self];
 
 			//catch the notification titled "getDNDState" and run the isActive method
 			[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(isActive) name:@"getDNDState" object:nil];
@@ -313,25 +313,25 @@
 		//because this method isn't run immediately after respring, the state of DND isn't refreshed and sometimes the dnd blur view  will still exist
 		//the notification observer explanation above is essential to prevent this issue from occurring.
 	 	- (BOOL) isActive {
-			
+
 	 		isDNDActive = %orig;
 
 	 		if (isDNDActive && dimEnabled) {
 	 			dispatch_async(dispatch_get_main_queue(), ^{
-					
+
 					//show dim blur view if dnd is active
 	 				[dimBlurViewLS setHidden:NO];
 	 			});
 	 		} else {
 	 			dispatch_async(dispatch_get_main_queue(), ^{
 
-					//hide dim blur view if dnd is active 
+					//hide dim blur view if dnd is active
 	 				[dimBlurViewLS setHidden:YES];
 	 			});
 	 		}
-			
+
 	 		return isDNDActive;
-	 	} 
+	 	}
 
 	%end
 
@@ -345,45 +345,45 @@
 	%hook SBIconController
 
  		- (void)viewDidLoad {
-		
+
 			%orig;
 
  			wallpaperImageViewHS = [[UIImageView alloc] initWithFrame:[[self view] bounds]];
-			
+
 			wallpaperImageViewHS.bounds = CGRectInset(wallpaperImageViewHS.frame, -50, -50);
  			[wallpaperImageViewHS setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
-         	[wallpaperImageViewHS setContentMode:UIViewContentModeScaleAspectFill];
-         	[wallpaperImageViewHS setClipsToBounds:YES];
-			 
+		 	[wallpaperImageViewHS setContentMode:UIViewContentModeScaleAspectFill];
+		 	[wallpaperImageViewHS setClipsToBounds:YES];
+
  			[[self view] insertSubview:wallpaperImageViewHS atIndex:0];
- 		
+
  		}
 
-		//this method handles when the homescreen is put back into view, mainly after the notification center is lifted up 
+		//this method handles when the homescreen is put back into view, mainly after the notification center is lifted up
 		- (void)viewWillAppear:(BOOL)animated {
-			
+
 			%orig;
-			
+
 			[self updateWallpaper];
 
 		}
 
 		//i hate ios 12, i almost died doing this ~Litten
 		- (id)contentView {
-			
+
 			if (!SYSTEM_VERSION_LESS_THAN(@"13")) return %orig;
 			[self updateWallpaper];
 
 			return %orig;
 
 		}
-		
+
 		%new
 		- (void)updateWallpaper {
 
 			//if the homescreen is viewed for the first time after the lockscreen or notification center, set image to what the lockscreen was
 			if (cameFromLockscreen && syncBothScreens) {
-				
+
 				if (!SYSTEM_VERSION_LESS_THAN(@"13"))
 					[wallpaperImageViewHS setImage:[cacheImageList objectForKey:variableLSName]];
 				else
@@ -392,9 +392,9 @@
 					} completion:nil];
 
 				//set to false to ensure that if the user left the homescreen
-				//but came back to it without unlocking the device, to not use the lockscreen or notification center image	
+				//but came back to it without unlocking the device, to not use the lockscreen or notification center image
 				cameFromLockscreen = FALSE;
-				
+
 			} else {
 
 				//new thing to disable wallpaper change when leaving apps (however still change wallpaper normally if unlocking device for the first time)
@@ -409,7 +409,7 @@
 
 						UIImage *cacheImage = [GcImagePickerUtils imageFromDefaults:@"com.denial.doabarrelwallprefs" withKey:variableHSName];
 						if (!(cacheImage == nil)) {
-							
+
 							if (!SYSTEM_VERSION_LESS_THAN(@"13"))
 								[wallpaperImageViewHS setImage:cacheImage];
 							else
@@ -417,25 +417,25 @@
 									[wallpaperImageViewHS setImage:cacheImage];
 								} completion:nil];
 							[cacheImageList setObject:cacheImage forKey:variableHSName];
-							
+
 						} else {
 
 							[wallpaperImageViewHS setImage:nil];
 
 						}
-						
+
 					} else {
-						
+
 						if (!SYSTEM_VERSION_LESS_THAN(@"13"))
 							[wallpaperImageViewHS setImage:[cacheImageList objectForKey:variableHSName]];
 						else
 							[UIView transitionWithView:wallpaperImageViewHS duration:0.15 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
 								[wallpaperImageViewHS setImage:[cacheImageList objectForKey:variableHSName]];
 							} completion:nil];
-					
+
 					}
 
-					previousHSVariable = variableHSName;	
+					previousHSVariable = variableHSName;
 					isDeviceLocked = FALSE;
 
 				} else if (!disableChangeOnAppExit) { //if the above doesn't happen, continue as normal
@@ -452,27 +452,27 @@
 
 							[wallpaperImageViewHS setImage:cacheImage];
 							[cacheImageList setObject:cacheImage forKey:variableHSName];
-							
+
 						} else {
 
 							[wallpaperImageViewHS setImage:nil];
 
 						}
-						
+
 					} else {
 
 						[wallpaperImageViewHS setImage:[cacheImageList objectForKey:variableHSName]];
-					
+
 					}
 
-				previousHSVariable = variableHSName;	
+				previousHSVariable = variableHSName;
 
 				}
 
 			}
 
 		}
-		
+
  	%end
 
 %end //end homescreen section
@@ -515,14 +515,14 @@
 
 			[cacheImageList setEvictsObjectsWithDiscardedContent:YES]; //defaulted to no, but is not strictly enforced by implementation
 
-			isDeviceLocked = TRUE; 
+			isDeviceLocked = TRUE;
 
 		}
 
 	}
-	
+
 	if (lockscreenEnabled) {
-		
+
 		//initialize lockscreen section
 		if (!SYSTEM_VERSION_LESS_THAN(@"13")) %init(lockscreenWallpaper13);
 		else if (SYSTEM_VERSION_LESS_THAN(@"13")) %init(lockscreenWallpaper12);

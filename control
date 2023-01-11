@@ -7,4 +7,3 @@ Maintainer: denial
 Author: denial
 Section: Tweaks
 Depends: mobilesubstrate, preferenceloader, firmware (>= 12.0), com.mrgcgamer.libgcuniversal (>= 1.1.2), ws.hbang.common (>= 1.14)
-

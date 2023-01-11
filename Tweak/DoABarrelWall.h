@@ -1,8 +1,9 @@
-/*initially, I thought that the inclusion of headers was pointless, 
-  as it just replaces the import line with the contents of the header, or at least that's how I think it works 
-  (https://stackoverflow.com/questions/439662/what-is-the-difference-between-import-and-include-in-objective-c)
-  While it may seem to be a preference thing, I now prefer to use headers as a means to organize global variables later used in the Tweak.xm file
-  */
+/*
+	initially, I thought that the inclusion of headers was pointless,
+	as it just replaces the import line with the contents of the header, or at least that's how I think it works
+	(https://stackoverflow.com/questions/439662/what-is-the-difference-between-import-and-include-in-objective-c)
+	While it may seem to be a preference thing, I now prefer to use headers as a means to organize global variables later used in the Tweak.xm file
+*/
 
 #import <UIKit/UIKit.h>
 #import "GcUniversal/GcImagePickerUtils.h"
@@ -20,7 +21,7 @@ BOOL dimEnabled;                        //if dim wallpapers on dnd is enabled
 BOOL cameFromLockscreen;                //if the user just came from the lockscreen
 BOOL disableChangeOnAppExit;            //if user wants the wallpaper to only change by lockscreen
 BOOL isDNDActive;                       //if the DND is active
-BOOL isDeviceLocked;                    //gets state of device 
+BOOL isDeviceLocked;                    //gets state of device
 
 NSUInteger numberOfImagesToCache;       //thanks gc for clarifying that NSUInteger is a primitive type, not an object lol
 
@@ -40,4 +41,4 @@ NSString *variableLSName;               //string to set current chosen lockscree
 NSString *variableHSName;               //string to set current chosen homescreen image variable
 
 NSArray *imageVariableList;             //array to hold all the available image variables to choose from
-NSCache *cacheImageList;                //dictionary array to hold cache images 
+NSCache *cacheImageList;                //dictionary array to hold cache images
