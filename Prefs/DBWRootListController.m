@@ -52,10 +52,7 @@ HBPreferences *prefs;
 
 - (void)respringUtil {
 
-	pid_t pid;
-	const char* args[] = {"killall", "backboardd", NULL};
 	[HBRespringController respringAndReturnTo:[NSURL URLWithString:@"prefs:root=DoABarrelWall"]];
-	posix_spawn(&pid, "/usr/bin/killall", NULL, NULL, (char *const *)args, NULL);
 
 }
 
