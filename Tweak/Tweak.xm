@@ -31,9 +31,10 @@
 
 			%orig;
 
-			/* dim and blur superview for when dim on dnd is enabled.
-			   Because the CSCoverSheetViewController isn't affected by the system blur, this is a cheap way to simulate it
-			 */
+			/*
+				dim and blur superview for when dim on dnd is enabled.
+				Because the CSCoverSheetViewController isn't affected by the system blur, this is a cheap way to simulate it
+			*/
 			dimBlurViewLS = [[UIView alloc] initWithFrame:[[self view] bounds]];
 			[dimBlurViewLS setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
 			if (![dimBlurViewLS isDescendantOfView:[self view]]) [[self view] insertSubview:dimBlurViewLS atIndex:1];
@@ -64,8 +65,6 @@
 
 			//add the view to the actual screen
 			[[self view] insertSubview:wallpaperImageViewLS atIndex:0];
-
-
 
 		}
 
@@ -227,9 +226,11 @@
 //this group is for the lockscreen section
 %group lockscreenWallpaperCompletion
 
-	/*Initially, I had the hook to be whenever the power button was pressed (which was meant to simulate when the phone was put to sleep).
-	  However, this was terrible, as it performed extraneous actions in events that I didn't want it to, such as turning the phone back on..
-	  Thanks Litten for providing a better hook that detects when the phone is going into a sleeping state, not a repeated button press.*/
+	/*
+		Initially, I had the hook to be whenever the power button was pressed (which was meant to simulate when the phone was put to sleep).
+		However, this was terrible, as it performed extraneous actions in events that I didn't want it to, such as turning the phone back on..
+		Thanks Litten for providing a better hook that detects when the phone is going into a sleeping state, not a repeated button press.
+	*/
 	%hook SBLockScreenManager
 
 		- (void)lockUIFromSource:(int)arg1 withOptions:(id)arg2 completion:(id)arg3 {
@@ -310,7 +311,7 @@
 
 		}
 
-		//because this method isn't run immediately after respring, the state of DND isn't refreshed and sometimes the dnd blur view  will still exist
+		//because this method isn't run immediately after respring, the state of DND isn't refreshed and sometimes the dnd blur view will still exist
 		//the notification observer explanation above is essential to prevent this issue from occurring.
 	 	- (BOOL) isActive {
 
@@ -536,6 +537,5 @@
 		%init(homescreenWallpaper);
 
 	}
-	return;
 
 }

@@ -182,7 +182,7 @@ NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ012345
 
 	//mediocre string length, but long enough that the possibility of the same variable being generated isn't in this lifetime
 	int stringLength = 10;
-    NSMutableString *randomString = [NSMutableString stringWithCapacity:stringLength];
+	NSMutableString *randomString = [NSMutableString stringWithCapacity:stringLength];
 
 	//appending each singular letter one by one a total of ten times
 	for (int i = 0; i < stringLength; i++) {
@@ -190,7 +190,7 @@ NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ012345
 	}
 
 	//and boom the unique variable is created
-    return randomString;
+	return randomString;
 }
 
 /*
