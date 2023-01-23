@@ -17,26 +17,12 @@ HBPreferences* preferences;
 BOOL lockscreenEnabled;                 //if lockscreen wallpaper is enabled
 BOOL homescreenEnabled;                 //if homescreen wallpaper is enabled
 BOOL syncBothScreens;                   //if sync both lockscreen and homescreen is enabled
-BOOL dimEnabled;                        //if dim wallpapers on dnd is enabled
-BOOL useStockViews;                     //if set system wallpaper is enabled
 BOOL compatibilityModeEnabled;          //if tweak compatibility mode is enabled
 
-BOOL cameFromLockscreen;                //if the user just came from the lockscreen
 BOOL disableChangeOnAppExit;            //if user wants the wallpaper to only change by lockscreen
-BOOL isDNDActive;                       //if the DND is active
-BOOL isDeviceLocked;                    //gets state of device
 UIColor *lockAvgColor;                  //average color of the lockscreen wallpaper
 
 NSUInteger numberOfImagesToCache;       //thanks gc for clarifying that NSUInteger is a primitive type, not an object lol
-
-UIImageView *wallpaperImageViewLS;      //image view used for the lockscreen
-UIImageView *wallpaperImageViewHS;      //image view used for the homescreen
-UIImage *image;                         //image that changes depending on the situation that is later used by the lockscreen and homescreen image views
-
-UIView* dimBlurViewLS;                  //dimBlurViewLS is a combination of both the the dimViewLS and blurViewLS
-UIView* dimViewLS;                      //dim blur
-UIVisualEffectView* blurViewLS;         //blur view
-UIBlurEffect* blurLS;                   //blur effect to be used on blurViewLS
 
 NSString *previousLSVariable;           //string to save last used lockscreen image variable
 NSString *previousHSVariable;           //string to save last used homescreen image variable
