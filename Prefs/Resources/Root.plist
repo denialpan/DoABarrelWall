@@ -91,6 +91,38 @@
 			<string>com.denial.doabarrelwallprefs</string>
 			<key>key</key>
 			<string>dimEnabled</string>
+			<key>PostNotification</key>
+			<string>com.denial.doabarrelwallprefs/ReloadPrefs</string>
+		</dict>
+
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>label</key>
+			<string>Use stock views</string>
+			<key>defaults</key>
+			<string>com.denial.doabarrelwallprefs</string>
+			<key>default</key>
+			<true/>
+			<key>key</key>
+			<string>useStockViews</string>
+			<key>PostNotification</key>
+			<string>com.denial.doabarrelwallprefs/ReloadPrefs</string>
+		</dict>
+
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>label</key>
+			<string>Tweak Compatibility</string>
+			<key>defaults</key>
+			<string>com.denial.doabarrelwallprefs</string>
+			<key>default</key>
+			<true/>
+			<key>key</key>
+			<string>compatibilityModeEnabled</string>
+			<key>PostNotification</key>
+			<string>com.denial.doabarrelwallprefs/ReloadPrefs</string>
 		</dict>
 
 		<dict>

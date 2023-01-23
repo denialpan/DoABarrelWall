@@ -7,6 +7,7 @@
 
 #import <UIKit/UIKit.h>
 #import <GcUniversal/GcImagePickerUtils.h>
+#import <GcUniversal/GcImageUtils.h>
 #import <Cephei/HBPreferences.h>
 
 #define SYSTEM_VERSION_LESS_THAN(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
@@ -17,11 +18,14 @@ BOOL lockscreenEnabled;                 //if lockscreen wallpaper is enabled
 BOOL homescreenEnabled;                 //if homescreen wallpaper is enabled
 BOOL syncBothScreens;                   //if sync both lockscreen and homescreen is enabled
 BOOL dimEnabled;                        //if dim wallpapers on dnd is enabled
+BOOL useStockViews;                     //if set system wallpaper is enabled
+BOOL compatibilityModeEnabled;          //if tweak compatibility mode is enabled
 
 BOOL cameFromLockscreen;                //if the user just came from the lockscreen
 BOOL disableChangeOnAppExit;            //if user wants the wallpaper to only change by lockscreen
 BOOL isDNDActive;                       //if the DND is active
 BOOL isDeviceLocked;                    //gets state of device
+UIColor *lockAvgColor;                  //average color of the lockscreen wallpaper
 
 NSUInteger numberOfImagesToCache;       //thanks gc for clarifying that NSUInteger is a primitive type, not an object lol
 
