@@ -1,6 +1,6 @@
 Package: com.denial.doabarrelwall
 Name: DoABarrelWall
-Version: 0.0.2
+Version: 0.0.3
 Architecture: iphoneos-arm
 Description: Cycle through lockscreen and homescreen wallpapers when unlocking device.
 Maintainer: denial
