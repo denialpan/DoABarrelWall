@@ -5,7 +5,7 @@
 	<key>items</key>
 	<array>
 
-        <dict>
+		<dict>
 			<key>cell</key>
 			<string>PSGroupCell</string>
 			<key>label</key>
@@ -13,7 +13,7 @@
 			<key>footerText</key>
 			<string>If you leave this page without saving, your changes will be lost.</string>
 		</dict>
-		
+
 		<dict>
 			<key>cell</key>
 			<string>PSButtonCell</string>
@@ -47,7 +47,7 @@
 			<key>isStaticText</key>
 			<true/>
 		</dict>
-		
+
 		<dict>
 			<key>cell</key>
 			<string>PSGroupCell</string>
@@ -56,7 +56,7 @@
 			<key>isStaticText</key>
 			<true/>
 		</dict>
-		
+
 	</array>
 	<key>title</key>
 	<string>Wallpaper Image List</string>

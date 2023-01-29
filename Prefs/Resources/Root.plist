@@ -19,7 +19,7 @@
 			<string>Full Contributor List</string>
 			<key>action</key>
 			<string>contributorsList</string>
-		</dict> 
+		</dict>
 
 		<dict>
 			<key>cell</key>
@@ -39,6 +39,8 @@
 			<string>com.denial.doabarrelwallprefs</string>
 			<key>key</key>
 			<string>lockscreenEnabled</string>
+			<key>PostNotification</key>
+			<string>com.denial.doabarrelwallprefs/ReloadPrefs</string>
 		</dict>
 
 		<dict>
@@ -50,6 +52,8 @@
 			<string>com.denial.doabarrelwallprefs</string>
 			<key>key</key>
 			<string>homescreenEnabled</string>
+			<key>PostNotification</key>
+			<string>com.denial.doabarrelwallprefs/ReloadPrefs</string>
 		</dict>
 
 		<dict>
@@ -61,6 +65,8 @@
 			<string>com.denial.doabarrelwallprefs</string>
 			<key>key</key>
 			<string>syncBothScreens</string>
+			<key>PostNotification</key>
+			<string>com.denial.doabarrelwallprefs/ReloadPrefs</string>
 		</dict>
 
 		<dict>
@@ -72,17 +78,23 @@
 			<string>com.denial.doabarrelwallprefs</string>
 			<key>key</key>
 			<string>disableChangeOnAppExit</string>
+			<key>PostNotification</key>
+			<string>com.denial.doabarrelwallprefs/ReloadPrefs</string>
 		</dict>
 
 		<dict>
 			<key>cell</key>
 			<string>PSSwitchCell</string>
 			<key>label</key>
-			<string>Dim Wallpapers On DND</string>
+			<string>Tweak Compatibility</string>
 			<key>defaults</key>
 			<string>com.denial.doabarrelwallprefs</string>
+			<key>default</key>
+			<true/>
 			<key>key</key>
-			<string>dimEnabled</string>
+			<string>compatibilityModeEnabled</string>
+			<key>PostNotification</key>
+			<string>com.denial.doabarrelwallprefs/ReloadPrefs</string>
 		</dict>
 
 		<dict>
@@ -92,7 +104,7 @@
 			<string>The fun part</string>
 			<key>footerText</key>
 			<string>The more images you set, the slower the next page will load. Given how iOS loads pages like these, there's only so much memory your device can allocate for. If the page repeatedly crashes, just reset everything below.</string>
-		</dict>		
+		</dict>
 
 		<dict>
  			<key>cell</key>
@@ -103,7 +115,7 @@
  			<string>DBWWallpaperImageList</string>
  			<key>DBWWalls</key>
  			<string>WallpaperImageList</string>
- 		</dict>	
+ 		</dict>
 
 		<dict>
 			<key>cell</key>
@@ -112,7 +124,7 @@
 			<string>Number of images to cache</string>
 			<key>footerText</key>
 			<string>The higher the number, the less likely to experience wallpaper change delays, but more RAM will be used, and vice versa.</string>
-		</dict>		
+		</dict>
 
 		<dict>
 			<key>cellClass</key>
@@ -131,15 +143,15 @@
 			<string># Of Images To Cache: 5</string>
 			<key>defaults</key>
 			<string>com.denial.doabarrelwallprefs</string>
-		</dict> 
+		</dict>
 
 		<dict>
 			<key>cell</key>
 			<string>PSGroupCell</string>
 			<key>label</key>
 			<string>Respring to save changes</string>
-		</dict>	
-		
+		</dict>
+
 		<dict>
 			<key>cell</key>
 			<string>PSButtonCell</string>
@@ -163,11 +175,11 @@
 			<string>Reset Preferences</string>
 			<key>action</key>
 			<string>resetPreferences</string>
-		</dict> 
+		</dict>
 
 		<dict>
 			<key>cell</key>
-			<key>PSGroupCell</key>
+			<string>PSGroupCell</string>
 			<key>footerText</key>
 			<string>Extremely tired 😴</string>
 			<key>isStaticText</key>
@@ -175,7 +187,7 @@
 			<key>footerAlignment</key>
 			<real>1</real>
 		</dict>
-		
+
 	</array>
 	<key>title</key>
 	<string>DoABarrelWall</string>
