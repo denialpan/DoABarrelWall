@@ -32,3 +32,5 @@ NSString *variableHSName;               //string to set current chosen homescree
 
 NSArray *imageVariableList;             //array to hold all the available image variables to choose from
 NSCache *cacheImageList;                //dictionary array to hold cache images
+
+NSString * const kPrefsIdentifier = @"com.denial.doabarrelwallprefs";
