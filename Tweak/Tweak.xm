@@ -8,8 +8,6 @@
 @interface SBFWallpaperView : UIView
 @property (assign,nonatomic) BOOL parallaxEnabled;
 @property (retain, nonatomic) UIView *contentView;
--(void)setContentsRect:(struct CGRect )arg0 ;
--(id)blurredImage;
 @end
 
 @interface SBWallpaperEffectView : UIView
@@ -42,7 +40,6 @@
 @interface _SBWFakeBlurView : UIView
 @property (readonly, nonatomic) NSInteger variant;
 -(NSInteger)effectiveStyle;
--(void)_setImage:(id)arg1 style:(long long)arg2 notify:(BOOL)arg3 ; //iOS 13-
 @end
 
 @interface _SBFakeBlurView : _SBWFakeBlurView
@@ -50,6 +47,10 @@
 
 @interface MTMaterialView : UIView
 +(id)materialViewWithRecipe:(NSInteger)arg0 configuration:(NSInteger)arg1 ;
+@end
+
+@interface CSCoverSheetView : UIView
+@property (readonly, nonatomic) UIView *slideableContentView;
 @end
 
 //big thanks to gc giving the best suggestion to optimize my tweak before release by caching images
@@ -62,6 +63,20 @@
 		kLockScreen = 1 << 0,
 		kHomeScreen = 1 << 1
 	};
+
+	static int wpForKey(NSString *key, UIImage **img) {
+		if (!(*img = [cacheImageList objectForKey:key])) {
+
+			*img = [GcImagePickerUtils imageFromDefaults:kPrefsIdentifier withKey:key];
+
+			if (!*img)
+				return 1;
+
+			[cacheImageList setObject:*img forKey:key];
+
+		}
+		return 0;
+	}
 
 	static void updateForImageLocation(UIImage *img, WallpaperLocation loc) {
 
@@ -123,16 +138,8 @@
 
 		//load image if not in cache
 		UIImage *newWallpaper;
-		if (!(newWallpaper = [cacheImageList objectForKey:*wpKey])) {
-
-			newWallpaper = [GcImagePickerUtils imageFromDefaults:@"com.denial.doabarrelwallprefs" withKey:*wpKey];
-
-			if (!newWallpaper)
-				return;
-
-			[cacheImageList setObject:newWallpaper forKey:*wpKey];
-
-		}
+		if (wpForKey(*wpKey, &newWallpaper))
+			return;
 
 		//set the wallpaper
 		dispatch_async(dispatch_get_main_queue(), ^{
@@ -228,12 +235,6 @@
 
 		}
 
-		- (void)_registerFakeBlurView:(_SBWFakeBlurView *)blur {
-			%orig;
-
-
-		}
-
 	%end
 
 	//fuck iOS 15
@@ -250,47 +251,54 @@
 
 	%end
 
-	%hook _SBFakeBlurView
-
-		/*
-			Half working fix for the CoverSheet sliding thingy.
-
-			The idea is to hook the method where the image on the fake view is being set, and overwrite that one with our one, for the right variant.
-
-			variant = 0 -> lockscreen
-			variant = 1 -> homescreen
-		*/
-		-(void)_setImage:(id)arg0 style:(NSInteger)arg1 notify:(BOOL)arg2 {
+	%hook CSCoverSheetView
+		BOOL isLocked = NO;
+		-(void)scrollViewDidEndScrolling:(id)arg0 {
 			%orig;
 
-			if (lockscreenEnabled && self.variant == 0) {
-				NSLog(@"Changing fakeBlurView on the fly - %@", self);
-				UIImage *img;
-				if (!(img = [cacheImageList objectForKey:variableLSName])) {
+			isLocked = NO;
+			/*
+				Reset the lock
+				The lock is set, once the wallpaper has been set once, to avoid unnecessary updates, which happen quite often
+			*/
 
-					img = [GcImagePickerUtils imageFromDefaults:@"com.denial.doabarrelwallprefs" withKey:variableLSName];
+		}
+		-(void)scrollViewDidScroll:(id)arg0 withContext:(void *)arg1 {
+			%orig;
+			if (isLocked || !lockscreenEnabled)
+				return;
 
-					if (!img)
-						return;
+			UIImage *newWallpaper;
+			if (wpForKey(variableLSName, &newWallpaper))
+				return;
 
-					[cacheImageList setObject:img forKey:variableLSName];
+			/*
+				Now this block is ugly AF, but I couldn't find a better way to do it
+				(The goal is to overwrite the image which is displayed during transitioning to the lockscreen camera)
+			*/
+			for (UIView *subview in self.slideableContentView.subviews) {
+				if ([subview isKindOfClass:objc_getClass("SBDashBoardWallpaperEffectView")]) {
+					for (UIView *fakeBlur in subview.subviews) {
+						if ([fakeBlur isKindOfClass:objc_getClass("_SBFakeBlurView")]) {
+							UIImageView *imgView = (UIImageView *)[fakeBlur valueForKey:@"_imageView"];
+							imgView.bounds = [UIScreen mainScreen].bounds;
+							[imgView setContentMode:UIViewContentModeScaleAspectFill];
+							[imgView setImage:newWallpaper];
 
+							isLocked = YES;
+							return; // break out of the loops is early for performance (not that it makes a difference lol)
+						}
+					}
 				}
-
-				SBFWallpaperView *fakeWPView = (SBFWallpaperView *)[self valueForKey:@"_wallpaperView"];
-				[fakeWPView setParallaxEnabled:NO];
-				[fakeWPView contentView].bounds = [UIScreen mainScreen].bounds;
-
-				NSString *key = SYSTEM_VERSION_LESS_THAN(@"15") ? @"_imageView" : @"_providedImageView";
-
-				UIImageView *fakeImageView = (UIImageView *)[self valueForKey:key];
-				[fakeImageView setContentMode:UIViewContentModeScaleAspectFill];
-				[fakeImageView setImage:img];
 			}
+
 		}
 	%end
 
 	//fuck iOS 13
+	/*
+		Replaces the folder background on iOS 13 with a MTMaterialView, which is what iOS 14+ uses -> no more ugly misscoloured folders
+	*/
 	%hook SBFolderIconImageView
 		- (void)setBackgroundView:(UIView *)backgroundView {
 
@@ -311,7 +319,7 @@
 %ctor {
 
 	//retrieve preferences from /var/mobile/Library/Preferences/
-	preferences = [[HBPreferences alloc] initWithIdentifier:@"com.denial.doabarrelwallprefs"];
+	preferences = [[HBPreferences alloc] initWithIdentifier:kPrefsIdentifier];
 
 	//get values from the list
 	[preferences registerBool:&lockscreenEnabled default:NO forKey:@"lockscreenEnabled"];
