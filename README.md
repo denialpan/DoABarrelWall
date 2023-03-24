@@ -1,6 +1,8 @@
 # DoABarrelWall
 Cycle through lockscreen and homescreen wallpapers with an "unlimited" set amount of images. Similar to what Android has. [Tweak demonstration](https://www.reddit.com/r/jailbreak/comments/lkafdh/free_release_doabarrelwall_change_lockscreen_and/).
 
+Just recently, two years after the initial tweak release, https://github.com/MrGcGamer was kind enough to provide an update to this tweak that got rid of finnicky issues that I myself have not been able to fix, one of which was a visual problem that people have reported on to be irritating.
+
 ## Contributors
 Because these people are more important than the tweak itself. This README.md file will be solely this.
 
