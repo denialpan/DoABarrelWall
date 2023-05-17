@@ -20,6 +20,7 @@
 */
 
 #import "DBWWallpaperImageList.h"
+#import <rootless.h>
 
 //preferences
 HBPreferences *prefs;
@@ -281,8 +282,8 @@ NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ012345
 		//delete actual files created by the libGcUniversal to save space
 		for (NSString *keyWord in removeVariableList) {
 
-			[[NSFileManager defaultManager] removeItemAtPath:[NSString stringWithFormat:@"/var/mobile/Library/Preferences/com.denial.doabarrelwallprefs/%@-PRE", keyWord] error:nil];
-			[[NSFileManager defaultManager] removeItemAtPath:[NSString stringWithFormat:@"/var/mobile/Library/Preferences/com.denial.doabarrelwallprefs/%@-IMG", keyWord] error:nil];
+			[[NSFileManager defaultManager] removeItemAtPath:[NSString stringWithFormat:ROOT_PATH_NS(@"/var/mobile/Library/Preferences/com.denial.doabarrelwallprefs/%@-PRE"), keyWord] error:nil];
+			[[NSFileManager defaultManager] removeItemAtPath:[NSString stringWithFormat:ROOT_PATH_NS(@"/var/mobile/Library/Preferences/com.denial.doabarrelwallprefs/%@-IMG"), keyWord] error:nil];
 
 		}
 

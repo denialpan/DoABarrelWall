@@ -1,4 +1,5 @@
 #import "DBWRootListController.h"
+#import <rootless.h>
 
 #define contributorsURL @"https://github.com/denialpan/DoABarrelWall/blob/main/README.md#Credits"
 
@@ -36,7 +37,7 @@ HBPreferences *prefs;
 
 	[prefs removeAllObjects];
 
-	[[NSFileManager defaultManager] removeItemAtPath:@"/var/mobile/Library/Preferences/com.denial.doabarrelwallprefs/" error:nil];
+	[[NSFileManager defaultManager] removeItemAtPath:ROOT_PATH_NS(@"/var/mobile/Library/Preferences/com.denial.doabarrelwallprefs/") error:nil];
 	[self respringUtil];
 
 }
